@@ -1,4 +1,5 @@
 // Base de datos de usuarios (simulada)
+
 let usuarios = [
     { usuario: "nico", contraseña: "1234" },
     { usuario: "fede", contraseña: "1234" },
@@ -6,6 +7,7 @@ let usuarios = [
   ];
   
   // Función para realizar el login
+  alert ("esta es una simulacion de loguin ")
   function login() {
     let usuarioIngresado = prompt("Ingrese su nombre de usuario: ");
     let contraseñaIngresada = prompt("Ingrese su contraseña: ");
