@@ -32,7 +32,7 @@ let usuarios = [
   
   // Función principal que solicita el inicio de sesión hasta que sea exitoso
   function iniciarSesion() {
-    let intentos = 3;
+    let intentos = 2;
     let loginExitoso = false;
   
     while (intentos > 0 && !loginExitoso) {
