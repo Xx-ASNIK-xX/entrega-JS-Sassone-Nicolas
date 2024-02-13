@@ -1,104 +1,55 @@
-// for (desde / hasta / actualizacion)
-
-//for (let i = 0; i < 10; i++ ) /* i++ es igual a i= i +1 */  {
-//    console.log("conteo: " + i); 
-//}
-
-
-/*for (let i=0; i <= 3; i++){
-    alert("ya llegamos a la india? ")
-    alert("No")
-}
-alert("mmm... a ver si lelgamos!!!! ")*/
-
-
-/*for(let i=10; i > 0; i--){ // i = i -1
-    console.log("conteo " + i)
-}
-console.log("Despegamos")*/
-
-
-
-/*for( let i=0; i<20; i=i +2){
-    console.log(i);
-}*/
-
-//let ingreso= parseInt(prompt("ingrese un numero"))
-
-/*let ingreso = prompt("insgresa un numero")
-ingreso= parseInt(ingreso)
-for(let i=0; i <= 10; i++){
-    let resultado = ingreso *i;
-    console.log(" el resultado de la multiplicacion de " + ingreso + " X " + i + " es " + resultado);
-}*/
-
-
-// break 
-
-let palabraClave= "oruga";
-/*for(let i = 0; i <= 3; i++) {
-    let ingreso = prompt("pone la palabra clave");
-    if(ingreso == palabraClave){
-        alert("Adivinaste");
+// Base de datos de usuarios (simulada)
+let usuarios = [
+    { usuario: "nico", contraseña: "1234" },
+    { usuario: "fede", contraseña: "1234" },
+    { usuario: "agus", contraseña: "1234" }
+  ];
+  
+  // Función para realizar el login
+  function login() {
+    let usuarioIngresado = prompt("Ingrese su nombre de usuario: ");
+    let contraseñaIngresada = prompt("Ingrese su contraseña: ");
+  
+    let usuarioValido = false;
+  
+    // Buscar el usuario en la base de datos
+    for (let i = 0; i < usuarios.length; i++) {
+      if (usuarios[i].usuario === usuarioIngresado && usuarios[i].contraseña === contraseñaIngresada) {
+        usuarioValido = true;
         break;
-    }else{
-        alert("Error te quedan " + i + "intentos");
+      }
     }
-}*/
-//continue
-
-/*for(let i = 0; i <= 10; i++){
-    if (i == 3 || i == 5) {
-        console.log("oruga");
-        continue;
+  
+    // Verificar si el usuario es válido
+    if (usuarioValido) {
+      alert( "Bienvenido",  + usuarioIngresado + "!");
+    } else {
+      alert("Nombre de usuario o contraseña incorrectos. Por favor, inténtelo de nuevo.");
     }
-
-    console.log(i);
-}*/
-
-
-// SEGUIR PROBANDO
-//for (let i = 3; i <= 30; i += 3) {
-//    // Imprimimos el número que es múltiplo de tres
-//    console.log("los multiplo de 3 son " + (i));
-//}
-
-
-//while
-
-/*let contador = 0;
-
-while (contador < 10){
-console.log(contador);
-
-
-    // OBLIGATORIO --- condicion de salida del bucle
-    contador ++;
-}*/
-
-/*let ingreso= prompt("ya llegamos a la india")
- while(ingreso != "si"){
-
-    ingreso= prompt("ya llegamos a la india")
-
-    //Condicion de salida
-}
-    alert("A ver yaaa!!!!!!")*/
- 
-/*let ingreso = prompt("nos llevas a monte splash?");
-    while(ingreso != "si") {
-        if(ingreso== "si digo si.."){
-        alert("Claro")
-        alert("Por supuesto")
+  }
+  
+  // Función principal que solicita el inicio de sesión hasta que sea exitoso
+  function iniciarSesion() {
+    let intentos = 3;
+    let loginExitoso = false;
+  
+    while (intentos > 0 && !loginExitoso) {
+      login();
+      intentos--;
+  
+      // Verificar si el login fue exitoso
+      if (intentos > 0) {
+        let intentarNuevamente = confirm("¿Desea intentarlo de nuevo? ");
+        if (!intentarNuevamente) {
+          break;
+        }
+      }
     }
-    ingreso = prompt("nos llevas a monte splash")
-}
-    alert ("gracias papa") */   
-
-let ingreso = prompt("ingresa un producto. Para salir ingrese 0");
-
-while(ingreso !="0") {
-    alert("ingresaste " + ingreso);
-    //Condicion de salida 
-    ingreso = prompt("ingresa un producto. para salir ingrese 0");
-}
+  
+    if (intentos === 0 && !loginExitoso) {
+      alert("Has agotado tus intentos. Por favor, inténtelo más tarde. ");
+    }
+  }
+  
+  // Iniciar el proceso de inicio de sesión
+  iniciarSesion();
