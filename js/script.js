@@ -27,7 +27,7 @@ function login() {
 
     // Verificar si el usuario es válido
     if (usuarioValido) {
-        alert("¡Bienvenido, " + usuarioIngresado + "!");
+        alert("¡Bienvenido, " + usuarioIngresado + "!!!");
         return true; // Actualizar el estado del login a exitoso
     } else {
         alert("Nombre de usuario o contraseña incorrectos. Por favor, inténtelo de nuevo.");
